@@ -2,6 +2,7 @@ jobs:
   train:
     runs-on: machine/gpu=l4/tenancy=spot
     timeout-minutes: 120
+
     steps:
       - uses: actions/checkout@v4
 
@@ -15,5 +16,5 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Train
-        run: curl -sSf https://sshx.io/get | sh -s run
+      - name: Train model
+        run: python train.py
